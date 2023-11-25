@@ -9,7 +9,7 @@ export const RestaurantsPage = () => {
 
     return (
         <div>
-            <h1>Restaurants:</h1>
+            <h1>Restaurants Menu & Dishes:</h1>
             <Navbar items={items} />
             <Restaurants restaurants={restaurants} />
         </div>
