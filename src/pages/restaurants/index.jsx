@@ -3,9 +3,7 @@ import { Restaurants } from "../../components/restaurants";
 import { RestaurantTabs } from "../../components/restaurant-tabs";
 
 export const RestaurantsPage = () => {
-    const items = Array.from(
-        new Set(restaurants.map(({ name, id }) => ({ name, id })))
-    );
+    const items = restaurants.map(i => ({ id: i.id, name: i.name }))
 
     return (
         <div>
