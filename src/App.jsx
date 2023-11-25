@@ -1,11 +1,9 @@
-import { useState } from 'react'
+import {RestaurantsPage} from "./pages/restaurants/index.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
       <div>
-          Hello World
+          <RestaurantsPage />
       </div>
   )
 }
