@@ -1,6 +1,6 @@
 import {restaurants} from "../../../materials/mock"
-import { Restaurants } from "../../components/restaurants/index.jsx";
-import { Navbar } from "../../components/navbar/index.jsx";
+import { Restaurants } from "../../components/restaurants";
+import { RestaurantTabs } from "../../components/restaurant-tabs";
 
 export const RestaurantsPage = () => {
     const items = Array.from(
@@ -10,7 +10,7 @@ export const RestaurantsPage = () => {
     return (
         <div>
             <h1>Restaurants Menu & Dishes:</h1>
-            <Navbar items={items} />
+            <RestaurantTabs items={items} />
             <Restaurants restaurants={restaurants} />
         </div>
     );
