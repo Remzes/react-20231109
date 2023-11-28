@@ -1,4 +1,4 @@
-import { MenuItemCounter } from "../counter"
+import { ItemCounter } from "../counter"
 
 export const MenuItem = ({ name, price, ingredients }) => {
     return (
@@ -6,7 +6,7 @@ export const MenuItem = ({ name, price, ingredients }) => {
             <p>
                 <strong>{name}</strong> - {price}$
             </p>
-            <MenuItemCounter />
+            <ItemCounter />
             <p>{ingredients}</p>
         </>
     )

@@ -7,7 +7,7 @@ export const RestaurantsPage = () => {
     const items = restaurants.map(i => ({ id: i.id, name: i.name }))
     const [restaurantId, setActiveRestaurantId] = useState()
 
-    const activeRestaurant = restaurants.find(r => r.id === restaurantId)
+    const activeRestaurant = restaurants.find(restaurant => restaurant.id === restaurantId)
 
     return (
         <div>
