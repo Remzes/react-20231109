@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const MenuItemCounter = () => {
+export const ItemCounter = () => {
     const [counter, setCounter] = useState(0)
 
     return (
