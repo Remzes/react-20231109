@@ -2,6 +2,7 @@ import {restaurants} from "../../../materials/mock"
 import { RestaurantTabs } from "../../components/restaurant-tabs";
 import { useState } from "react";
 import { Restaurant } from "../../components/restaurant";
+import { ReviewForm } from "../../components/review-form";
 
 export const RestaurantsPage = () => {
     const items = restaurants.map(i => ({ id: i.id, name: i.name }))
@@ -16,7 +17,12 @@ export const RestaurantsPage = () => {
                 setActiveRestaurantId={setActiveRestaurantId}
                 items={items}
             />
-            { restaurantId && <Restaurant restaurant={activeRestaurant} /> }
+            { restaurantId && (
+                <>
+                    <Restaurant restaurant={activeRestaurant} />
+                    <ReviewForm />
+                </>
+            )}
         </div>
     );
 };
