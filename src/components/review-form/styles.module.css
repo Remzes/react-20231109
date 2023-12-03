@@ -1,0 +1,18 @@
+.root {
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.submitButton {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: bisque;
+    padding: 5px 15px;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+}
