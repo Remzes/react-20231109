@@ -1,13 +1,9 @@
-import { useState } from "react"
-
-export const ItemCounter = () => {
-    const [counter, setCounter] = useState(0)
-
+export const Counter = ({ value, increment, decrement}) => {
     return (
         <div>
-            <button onClick={() => setCounter(counter - 1)}>-</button>
-            <b style={{ padding: '0 5px' }}>{counter}</b>
-            <button onClick={() => counter < 5 && setCounter(counter + 1)}>+</button>
+            <button onClick={decrement}>-</button>
+            <b style={{ padding: '0 5px' }}>{value}</b>
+            <button onClick={increment}>+</button>
         </div>
     )
 }
