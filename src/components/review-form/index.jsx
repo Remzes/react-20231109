@@ -1,5 +1,5 @@
 import { useCallback, useReducer } from "react"
-import { ItemCounter } from "../counter"
+import { Counter } from "../counter"
 
 const FORM_CONST = {
     min: 1,
@@ -51,7 +51,7 @@ export const ReviewForm = () => {
                 <label>Text</label>
                 <input id="text" onChange={textInputChange} />
             </div>
-            <ItemCounter
+            <Counter
                 value={form.rating}
                 increment={incrementRating}
                 decrement={decrementRating}
