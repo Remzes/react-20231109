@@ -1,6 +1,4 @@
-import { useCallback } from "react"
-
-export const ItemCounter = ({ value, increment, decrement}) => {
+export const Counter = ({ value, increment, decrement}) => {
     return (
         <div>
             <button onClick={decrement}>-</button>
