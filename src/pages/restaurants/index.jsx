@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Restaurant } from "../../components/restaurant";
 import { ReviewForm } from "../../components/review-form";
 
+import styles from "./styles.module.css"
+
 export const RestaurantsPage = () => {
     const items = restaurants.map(i => ({ id: i.id, name: i.name }))
     const [restaurantId, setActiveRestaurantId] = useState(-1)
@@ -20,7 +22,7 @@ export const RestaurantsPage = () => {
             />
             { restaurantId && restaurantId !== -1 && (
                 <>
-                    <Restaurant restaurant={activeRestaurant} />
+                    <Restaurant className={styles.restaurant} restaurant={activeRestaurant} />
                     <ReviewForm />
                 </>
             )}

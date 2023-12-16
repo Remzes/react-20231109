@@ -47,11 +47,13 @@ export const ReviewForm = () => {
     return (
         <form className={styles.root}>
             <TextInput
+                className={styles.input}
                 label="Name"
                 id="name"
                 onChange={textInputChange}
             />
             <TextInput
+                className={styles.input}
                 label="Text"
                 id="text"
                 onChange={textInputChange}
