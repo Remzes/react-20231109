@@ -1,5 +1,6 @@
 .root {
-    background-color: aquamarine;
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
     border-radius: 20px;
     padding: 20px;
 }

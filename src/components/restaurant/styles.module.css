@@ -1,5 +1,6 @@
 .root {
-    background-color: antiquewhite;
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
     padding: 10px;
 }
 

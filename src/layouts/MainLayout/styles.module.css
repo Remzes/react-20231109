@@ -1,0 +1,10 @@
+.root {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.content {
+    flex: 1 0 auto;
+}
