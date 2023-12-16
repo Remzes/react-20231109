@@ -1,5 +1,8 @@
 import { useCallback, useReducer } from "react"
 import { Counter } from "../counter"
+import { TextInput } from "../form-controllers/text-input"
+
+import styles from './styles.module.css'
 
 const FORM_CONST = {
     min: 1,
@@ -42,21 +45,25 @@ export const ReviewForm = () => {
     const textInputChange = ({ target: { id, value } }) => dispatch({ type: 'text_input', payload: { key: id, value } })
 
     return (
-        <form>
-            <div>
-                <label>Name</label>
-                <input id="name" onChange={textInputChange} />
-            </div>
-            <div>
-                <label>Text</label>
-                <input id="text" onChange={textInputChange} />
-            </div>
+        <form className={styles.root}>
+            <TextInput
+                className={styles.input}
+                label="Name"
+                id="name"
+                onChange={textInputChange}
+            />
+            <TextInput
+                className={styles.input}
+                label="Text"
+                id="text"
+                onChange={textInputChange}
+            />
             <Counter
                 value={form.rating}
                 increment={incrementRating}
                 decrement={decrementRating}
             />
-            <button type="submit">Add Review</button>
+            <button className={styles.submitButton} type="submit">Add Review</button>
         </form>
     )
 }

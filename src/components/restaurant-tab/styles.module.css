@@ -1,0 +1,16 @@
+.root {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 2px #000;
+}
+
+.root:hover {
+    box-shadow: 0 0 5px #000;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 0 5px #000;
+}

@@ -1,10 +1,13 @@
 import { Menu } from "../menu";
 import { Reviews } from "../reviews";
+import cn from "classnames"
 
-export const Restaurant = ({ restaurant }) => {
+import styles from './styles.module.css'
+
+export const Restaurant = ({ restaurant, className }) => {
     return (
-        <div>
-            <h2>{restaurant.name}</h2>
+        <div className={cn(styles.root, className)}>
+            <h2 className={styles.header}>{restaurant.name}</h2>
             <Menu menu={restaurant.menu} />
             <Reviews reviews={restaurant.reviews} />
             <hr />
