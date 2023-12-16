@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { ItemCounter } from "../counter"
+import { Counter } from "../counter"
 
 const MENUITEM_CONST = {
     min: 0,
@@ -24,7 +24,7 @@ export const MenuItem = ({ name, price, ingredients }) => {
             <p>
                 <strong>{name}</strong> - {price}$
             </p>
-            <ItemCounter
+            <Counter
                 value={amount}
                 increment={incrementAmount}
                 decrement={decrementAmount}

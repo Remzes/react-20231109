@@ -5,6 +5,10 @@
     padding: 20px;
 }
 
+.input {
+    margin-bottom: 10px;
+}
+
 .submitButton {
     margin-top: 50px;
     font-size: 20px;

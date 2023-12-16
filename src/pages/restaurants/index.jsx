@@ -7,6 +7,8 @@ import { MainLayout } from "../../layouts/MainLayout";
 
 import styles from "./styles.module.css"
 
+import styles from "./styles.module.css"
+
 export const RestaurantsPage = () => {
     const items = restaurants.map(i => ({ id: i.id, name: i.name }))
     const [restaurantId, setActiveRestaurantId] = useState(-1)
@@ -25,7 +27,7 @@ export const RestaurantsPage = () => {
             </div>
             { restaurantId && restaurantId !== -1 && (
                 <>
-                    <Restaurant restaurant={activeRestaurant} />
+                    <Restaurant className={styles.restaurant} restaurant={activeRestaurant} />
                     <ReviewForm />
                 </>
             )}
