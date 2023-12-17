@@ -5,9 +5,9 @@ export const Reviews = ({ reviews }) => {
         <div>
             <h3>Reviews:</h3>
             <ul>
-                {reviews.map(({ id, user, rating, text }) => (
+                {reviews.map(id => (
                     <li key={id}>
-                        <UserReview user={user} rating={rating} text={text} />
+                        <UserReview id={id} />
                     </li>
                 ))}
             </ul>

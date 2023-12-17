@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react"
 import { Counter } from "../counter"
+import { useSelector } from "react-redux"
+import { selectDishById } from "../../redux/features/entities/dishes/selector"
 
 const MENUITEM_CONST = {
     min: 0,
@@ -7,8 +9,10 @@ const MENUITEM_CONST = {
     step: 1
 }
 
-export const MenuItem = ({ name, price, ingredients }) => {
+export const MenuItem = ({ id }) => {
     const [amount, setAmount] = useState(0)
+
+    const { name, price, ingredients } = useSelector(state => selectDishById(state, id))
 
     const incrementAmount = useCallback((e) => {
         e.preventDefault()
@@ -29,7 +33,7 @@ export const MenuItem = ({ name, price, ingredients }) => {
                 increment={incrementAmount}
                 decrement={decrementAmount}
             />
-            <p>{ingredients}</p>
+            <p>{typeof ingredients === 'object' ? ingredients.join(', ') : ingredients}</p>
         </>
     )
 }

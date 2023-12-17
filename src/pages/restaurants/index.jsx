@@ -1,19 +1,15 @@
-import {restaurants} from "../../../materials/mock"
 import { RestaurantTabs } from "../../components/restaurant-tabs";
 import { useState } from "react";
 import { Restaurant } from "../../components/restaurant";
 import { ReviewForm } from "../../components/review-form";
 import { MainLayout } from "../../layouts/MainLayout";
-
 import styles from "./styles.module.css"
-
-import styles from "./styles.module.css"
+import { useSelector } from "react-redux";
+import { selectRestaurantById } from "../../redux/features/entities/restaurants/selector";
 
 export const RestaurantsPage = () => {
-    const items = restaurants.map(i => ({ id: i.id, name: i.name }))
     const [restaurantId, setActiveRestaurantId] = useState(-1)
-
-    const activeRestaurant = restaurants.find(restaurant => restaurant.id === restaurantId)
+    const activeRestaurant = useSelector(state => selectRestaurantById(state, restaurantId))
 
     return (
         <MainLayout>
@@ -22,7 +18,6 @@ export const RestaurantsPage = () => {
                 <RestaurantTabs
                     activeRestaurantId={restaurantId}
                     setActiveRestaurantId={setActiveRestaurantId}
-                    items={items}
                 />
             </div>
             { restaurantId && restaurantId !== -1 && (
