@@ -1,4 +1,4 @@
-import { MenuItem } from "../menu-item";
+import { MenuItemContainer } from "../menu-item/container";
 
 export const Menu = ({ menu }) => {
     return (
@@ -7,7 +7,7 @@ export const Menu = ({ menu }) => {
             <ol>
                 {menu.map(id => (
                     <li key={id}>
-                        <MenuItem id={id} />
+                        <MenuItemContainer id={id} />
                     </li>
                 ))}
             </ol>

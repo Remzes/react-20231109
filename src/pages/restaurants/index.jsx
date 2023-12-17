@@ -1,11 +1,11 @@
 import { RestaurantTabs } from "../../components/restaurant-tabs";
 import { useState } from "react";
-import { Restaurant } from "../../components/restaurant";
 import { ReviewForm } from "../../components/review-form";
 import { MainLayout } from "../../layouts/MainLayout";
 import styles from "./styles.module.css"
 import { useSelector } from "react-redux";
 import { selectRestaurantById } from "../../redux/features/entities/restaurants/selector";
+import { RestaurantContainer } from "../../components/restaurant/container";
 
 export const RestaurantsPage = () => {
     const [restaurantId, setActiveRestaurantId] = useState(-1)
@@ -22,7 +22,7 @@ export const RestaurantsPage = () => {
             </div>
             { restaurantId && restaurantId !== -1 && (
                 <>
-                    <Restaurant className={styles.restaurant} restaurant={activeRestaurant} />
+                    <RestaurantContainer className={styles.restaurant} restaurant={activeRestaurant} />
                     <ReviewForm />
                 </>
             )}
