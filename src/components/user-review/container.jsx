@@ -4,8 +4,8 @@ import { selectUserById } from "../../redux/features/entities/users/selector"
 import { UserReview } from "./component"
 
 export const UserReviewContainer = ({ id }) => {
-    const dish = useSelector(state => selectReviewsById(state, id))
-    const selectedUser = useSelector(state => selectUserById(state, dish.userId))
+    const review = useSelector(state => selectReviewsById(state, id))
+    const selectedUser = useSelector(state => selectUserById(state, review.userId))
 
-    return <UserReview selectedUser={selectedUser} dish={dish} />
+    return <UserReview selectedUser={selectedUser} review={review} />
 }

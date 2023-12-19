@@ -1,5 +1,5 @@
-export const UserReview = ({ selectedUser, dish }) => {
-    const { rating, text } = dish
+export const UserReview = ({ selectedUser, review }) => {
+    const { rating, text } = review
 
     return (
         <>

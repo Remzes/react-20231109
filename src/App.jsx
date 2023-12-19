@@ -1,4 +1,4 @@
-import {RestaurantsPage} from "./pages/restaurants/index.jsx";
+import { RestaurantsPageContainer } from "./pages/restaurants/container";
 import { Provider } from "react-redux";
 import store from "./redux"
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-          <RestaurantsPage />
+          <RestaurantsPageContainer />
       </div>
     </Provider>
   )
