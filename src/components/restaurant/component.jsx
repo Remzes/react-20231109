@@ -4,12 +4,12 @@ import cn from "classnames"
 
 import styles from './styles.module.css'
 
-export const Restaurant = ({ restaurant, className }) => {
+export const Restaurant = ({ restaurant, restaurantMenu, restaurantReviews, className }) => {
     return (
         <div className={cn(styles.root, className)}>
             <h2 className={styles.header}>{restaurant.name}</h2>
-            <Menu menu={restaurant.menu} />
-            <Reviews reviews={restaurant.reviews} />
+            <Menu menu={restaurantMenu} />
+            <Reviews reviews={restaurantReviews} />
             <hr />
         </div>
     );
