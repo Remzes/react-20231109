@@ -1,7 +1,6 @@
 import { UserReviewContainer } from "../user-review/container";
 
 export const Reviews = ({ reviews }) => {
-    console.log('What is reviews in compoennt?', reviews)
     return (
         <div>
             <h3>Reviews:</h3>

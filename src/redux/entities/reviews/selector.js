@@ -13,7 +13,6 @@ export const selectReviewsById = (state, id) =>
 //         (_, ids) => ids
 //     ],
 //     (...rest) => {
-//         console.log('What is here?', rest)
 //         return _.filter(
 //             _.values(entities),
 //             record => _.includes(ids, record.id)

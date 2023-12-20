@@ -11,23 +11,26 @@ export const reviewSlice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(getRestaurantReviewsById.pending, (state, action) => {
-            state.status = REQUEST_STATUES.peding
-            state.entities = {}
-            state.ids = []
+            state.status = REQUEST_STATUES.pending
         })
         builder.addCase(getRestaurantReviewsById.fulfilled, (state, action) => {
             state.status = REQUEST_STATUES.fulfilled
-            state.entities = action.payload.data.reduce((acc, dish) => {
-                acc[dish.id] = dish
+            const new_entites = action.payload.data.reduce((acc, review) => {
+                acc[review.id] = review
                 return acc;
             }, {})
-            state.ids = action.payload.data.map(i => i.id)
+            state.entities = {
+                ...state.entities,
+                ...new_entites
+            }
+            state.ids = [
+                ...state.ids,
+                ...action.payload.data.map(i => i.id)
+            ]
             state.loaded_restaurants[action.payload.restaurantId] = REQUEST_STATUES.fulfilled
         })
         builder.addCase(getRestaurantReviewsById.rejected, (state, action) => {
             state.status = REQUEST_STATUES.rejected
-            state.entities = {}
-            state.ids = []
         })
     }
 })
