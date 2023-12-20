@@ -1,18 +1,19 @@
 import { Restaurant } from "./component"
 import { useSelector } from "react-redux";
-import {
-    selectRestaurantMenuById,
-    selectRestaurantReviewsById
-} from "../../redux/features/entities/restaurants/selector";
+import { selectRestaurantReviewsLoadingStatusById } from "../../redux/entities/reviews/selector";
+import { selectRestaurantDishesLoadingStatusById } from "../../redux/entities/dishes/selector";
+
 
 export const RestaurantContainer = ({ restaurant, ...props }) => {
-    const restaurantMenu = useSelector(state => selectRestaurantMenuById(state, restaurant.id))
-    const restaurantReviews = useSelector(state => selectRestaurantReviewsById(state, restaurant.id))
+    const menuStatus = useSelector(state => selectRestaurantDishesLoadingStatusById(state, restaurant.id))
+    const reviewsStatus = useSelector(state => selectRestaurantReviewsLoadingStatusById(state, restaurant.id))
+    
+    console.log(menuStatus, reviewsStatus)
 
     return <Restaurant
         {...props}
         restaurant={restaurant}
-        restaurantMenu={restaurantMenu}
-        restaurantReviews={restaurantReviews}
+        menuStatus={menuStatus}
+        reviewsStatus={reviewsStatus}
     />
 }

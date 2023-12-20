@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import { useSelector } from "react-redux"
-import { selectDishById } from "../../redux/features/entities/dishes/selector"
+import { selectDishById } from "../../redux/entities/dishes/selector"
 import { MenuItem } from "./component"
 
 const MENUITEM_CONST = {
