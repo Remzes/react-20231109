@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { restaurantSlice } from "./features/entities/restaurants";
-import { dishSlice } from "./features/entities/dishes";
-import { reviewSlice } from "./features/entities/reviews";
-import { userSlice } from "./features/entities/users";
+import { restaurantSlice } from "./entities/restaurants";
+import { dishSlice } from "./entities/dishes";
+import { reviewSlice } from "./entities/reviews";
+import { userSlice } from "./entities/users";
 
 const store = configureStore({
     reducer: {
@@ -10,7 +10,8 @@ const store = configureStore({
         dish: dishSlice.reducer,
         review: reviewSlice.reducer,
         user: userSlice.reducer
-    }
+    },
+    middleware: (getDefaultMiddlewares) => getDefaultMiddlewares()
 })
 
 export default store;

@@ -1,4 +1,4 @@
-import { normalizedUsers } from "../../../../../materials/normalized-mock";
+import { normalizedUsers } from "../../../../materials/normalized-mock";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({

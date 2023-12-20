@@ -4,7 +4,7 @@ import { ReviewForm } from "../../components/review-form";
 import { MainLayout } from "../../layouts/MainLayout";
 import styles from "./styles.module.css"
 import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/features/entities/restaurants/selector";
+import { selectRestaurantById } from "../../redux/entities/restaurants/selector";
 import { RestaurantContainer } from "../../components/restaurant/container";
 
 export const RestaurantsPage = () => {
