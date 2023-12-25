@@ -11,7 +11,7 @@ export const reviewApiSlice = createApi({
                     params: { restaurantId }
                 }
             },
-            provideTags: (result, err) => result.map(review => ({ type: 'Review', id: review.id }))
+            provideTags: [{ type: 'Reviews', id: 'LIST' }]
         }),
         createReview: builder.mutation({
             query: ({ newReview }) => ({
@@ -30,12 +30,34 @@ export const reviewApiSlice = createApi({
                 )
                 callback()
             },
+        }),
+        updateReview: builder.mutation({
+            query: ({ updatedReview }) => ({
+                url: `/review/${updatedReview.id}`,
+                method: 'PATCH',
+                headers: {
+                    'Conent-Type': 'application/json'
+                },
+                body: updatedReview
+            }),
+            async onQueryStarted({ callback, restaurantId }, { dispatch, queryFulfilled }) {
+                const { data } = await queryFulfilled
+                    .catch(() => console.log('error!'))
+                dispatch(
+                    reviewApiSlice.util.updateQueryData('getReviewsByRestaurantId', { restaurantId }, (reviews) => { 
+                        const oldReviewIndex = reviews.findIndex(r => r.id === data.id)
+                        reviews[oldReviewIndex] = data
+                    })
+                )
+                callback()
+            }
         })
     })
 })
 
 export const {
     useCreateReviewMutation,
+    useUpdateReviewMutation,
     useGetReviewsByRestaurantIdQuery,
     useLazyGetReviewsByRestaurantIdQuery
 } = reviewApiSlice

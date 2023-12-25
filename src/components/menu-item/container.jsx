@@ -1,14 +1,7 @@
 import { useCallback, useState } from "react"
-import { useSelector } from "react-redux"
-import { selectDishById } from "../../redux/entities/dishes/selector"
 import { MenuItem } from "./component"
 import { useGetDishesByRestaurantIdQuery } from "../../redux/entities/dishes/dishApiSlice"
-
-const MENUITEM_CONST = {
-    min: 0,
-    max: 5,
-    step: 1
-}
+import { MENUITEM_CONST } from "../../consts/MENUITEM_CONST"
 
 export const MenuItemContainer = ({ id, restaurantId }) => {
     const [amount, setAmount] = useState(0)
