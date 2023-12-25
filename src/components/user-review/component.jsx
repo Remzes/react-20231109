@@ -1,4 +1,6 @@
-export const UserReview = ({ selectedUser, review }) => {
+import React from 'react'
+
+const UserReview = ({ selectedUser, review, ...rest }) => {
     const { rating, text } = review
 
     return (
@@ -10,3 +12,5 @@ export const UserReview = ({ selectedUser, review }) => {
         </>
     )
 }
+
+export const MemoizedUserReview = React.memo(UserReview)

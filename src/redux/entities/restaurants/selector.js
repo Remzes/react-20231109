@@ -5,7 +5,7 @@ export const selectRestaurants = (state) => selectRestaurantModule(state).entiti
 export const selectRestaurantIds = (state) => selectRestaurantModule(state).ids
 
 export const selectRestaurantById = (state, restaurantId) => 
-    selectRestaurantModule(state).entities[restaurantId]
+    selectRestaurantModule(state)?.entities[restaurantId]
 
 export const selectRestaurantMenuById = (state, restaurantId) => {
     return selectRestaurantById(state, restaurantId)?.menu

@@ -1,6 +1,7 @@
 import { MenuItemContainer } from "../menu-item/container";
 
-export const Menu = ({ dishes }) => {
+export const Menu = ({ dishes, restaurantId }) => {
+
     return (
         <div>
             <h3>Menu</h3>
@@ -8,7 +9,7 @@ export const Menu = ({ dishes }) => {
                 {dishes.map(item => {
                     return (
                         <li key={item.id}>
-                            <MenuItemContainer id={item.id} />
+                            <MenuItemContainer id={item.id} restaurantId={restaurantId} />
                         </li>
                     )
                 })}

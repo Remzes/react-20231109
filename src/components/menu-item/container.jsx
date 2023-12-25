@@ -2,6 +2,7 @@ import { useCallback, useState } from "react"
 import { useSelector } from "react-redux"
 import { selectDishById } from "../../redux/entities/dishes/selector"
 import { MenuItem } from "./component"
+import { useGetDishesByRestaurantIdQuery } from "../../redux/entities/dishes/dishApiSlice"
 
 const MENUITEM_CONST = {
     min: 0,
@@ -9,10 +10,15 @@ const MENUITEM_CONST = {
     step: 1
 }
 
-export const MenuItemContainer = ({ id }) => {
+export const MenuItemContainer = ({ id, restaurantId }) => {
     const [amount, setAmount] = useState(0)
 
-    const dish = useSelector(state => selectDishById(state, id))
+    // REDUX THUNK
+    // const dish = useSelector(state => selectDishById(state, id))
+
+    const { dish } = useGetDishesByRestaurantIdQuery({ restaurantId }, {
+        selectFromResult: ({ data }) => ({ dish: data?.find(d => d.id === id) })
+    })
 
     const incrementAmount = useCallback((e) => {
         e.preventDefault()

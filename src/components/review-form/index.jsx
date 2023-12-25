@@ -3,6 +3,7 @@ import { Counter } from "../counter"
 import { TextInput } from "../form-controllers/text-input"
 
 import styles from './styles.module.css'
+import { useCreateReviewMutation } from "../../redux/entities/reviews/reviewApiSlice"
 
 const FORM_CONST = {
     min: 1,
@@ -11,8 +12,8 @@ const FORM_CONST = {
 }
 
 const initialState = {
-    name: null,
-    text: null,
+    userId: 'dfb982e9-b432-4b7d-aec6-7f6ff2e6af54',
+    text: '',
     rating: 1
 }
 
@@ -24,14 +25,24 @@ const reducer = (state, action) => {
             return { ...state, rating: state.rating + FORM_CONST.step }
         case 'decrement_rating':
             return { ...state, rating: state.rating - FORM_CONST.step }
+        case 'cleanup_form':
+            return { ...state, ...initialState }
         default:
             return state
     }
 }
 
-
-export const ReviewForm = () => {
+export const ReviewForm = ({ restaurantId }) => {
     const [form, dispatch] = useReducer(reducer, initialState)
+    const [ createReview, { isLoading } ] = useCreateReviewMutation()
+
+    const onClick = (e) => {
+        e.preventDefault()
+        createReview({ 
+            newReview: { ...form, restaurantId },
+            callback: () => dispatch({ type: 'cleanup_form' })
+         })
+    }
 
     const incrementRating = useCallback((e) => {
         e.preventDefault()
@@ -48,14 +59,9 @@ export const ReviewForm = () => {
         <form className={styles.root}>
             <TextInput
                 className={styles.input}
-                label="Name"
-                id="name"
-                onChange={textInputChange}
-            />
-            <TextInput
-                className={styles.input}
                 label="Text"
                 id="text"
+                value={form.text}
                 onChange={textInputChange}
             />
             <Counter
@@ -63,7 +69,14 @@ export const ReviewForm = () => {
                 increment={incrementRating}
                 decrement={decrementRating}
             />
-            <button className={styles.submitButton} type="submit">Add Review</button>
+            <button
+                onClick={onClick}
+                disabled={isLoading}
+                className={styles.submitButton}
+                type="submit"
+            >
+                Add Review
+            </button>
         </form>
     )
 }

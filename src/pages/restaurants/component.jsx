@@ -17,7 +17,7 @@ export const RestaurantPage = ({ restaurantId, setActiveRestaurantId, activeRest
             { restaurantId && restaurantId !== -1 && (
                 <>
                     <RestaurantContainer className={styles.restaurant} restaurant={activeRestaurant} />
-                    <ReviewForm />
+                    <ReviewForm restaurantId={restaurantId} />
                 </>
             )}
         </MainLayout>
